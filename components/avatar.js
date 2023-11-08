@@ -13,9 +13,9 @@ class Avatar extends Component {
 
 const styles = StyleSheet.create({
     avatar:{
-        width: 200,
-        height: 200,
-        borderRadius: 200/2,
+        width: 150,
+        height: 150,
+        borderRadius: 150/2,
         borderWidth: 2,
         borderColor: "#000000",
         alignSelf: "center",

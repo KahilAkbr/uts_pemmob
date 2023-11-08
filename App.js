@@ -12,20 +12,20 @@ const App = () => {
   const headerStyle = {
     headerTitleStyle: { color: "white" },
     headerStyle: {
-      backgroundColor: "#AA0002",
+      backgroundColor: "#d4af37",
     },
     headerTintColor: "white",
   };
 
   return (
     <NavigationContainer>
-      <StatusBar style="auto" backgroundColor="#AA0002" />
+      <StatusBar style="auto" backgroundColor='black' />
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
-            title: "React Native Networking",
+            title: "Home Page",
             ...headerStyle,
           }}
         />

@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {Image, ScrollView, Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import Separator from "../components/separator";
+import Button from "../components/button";
 import Avatar from "../components/avatar";
+import {Divider} from 'react-native-paper';
 
 class Home extends Component{
     render(){
@@ -19,9 +21,10 @@ class Home extends Component{
         }
 
         return(
-            <View style={{flex: 1,backgroundColor: '#00897B'}}>
+            <View style={{flex: 1, flexDirection:'column'}}>
                 <Separator height={15}/>
-                <View style={styles.logoContainer}>
+
+                <View style={[styles.logoContainer, {flex:1}]}>
                     <Image
                         source={require('../assets/ITTS.png')}
                         style={[styles.imageLogo, {marginLeft:25}]}
@@ -31,13 +34,94 @@ class Home extends Component{
                         style={[styles.imageLogo, {marginRight:25}]}
                     />
                 </View>
+
+                <Separator height={10}/>
+
+                <View style={{flex:4}}>
+                    <Avatar
+                        source={require('../assets/avatar.jpeg')}
+                    />
+                    <Separator height={5}/>
+                    <Text style={styles.titleText}>
+                        {bio.name}'s Profile
+                    </Text>
+                </View>
+
+                <View style={[styles.bioContainer,{flex:5}]}>
+                    <View style={styles.bioTitle}>
+                        <View style={styles.bioTitlePart}>
+                            <Text style={styles.bioTitleContent}>
+                                Nama Lengkap
+                            </Text>
+                        </View>
+                        <Divider bold={'true'} style={{marginLeft:15}}/>
+                        <View style={styles.bioTitlePart}>
+                            <Text style={styles.bioTitleContent}>
+                                NIM
+                            </Text>
+                        </View>
+                        <Divider bold={'true'} style={{marginLeft:15}}/>
+                        <View style={styles.bioTitlePart}>
+                            <Text style={styles.bioTitleContent}>
+                                Kelas
+                            </Text>
+                        </View>
+                        <Divider bold={'true'} style={{marginLeft:15}}/>
+                    </View>
+                    <View style={styles.bioData}>
+                        <View style={styles.bioDataPart}>
+                            <Text style={styles.bioDataContent}>
+                                Kahil Akbar Bayu Adityo
+                            </Text>
+                        </View>
+                        <Divider bold={'true'} style={{marginRight:15}}/>
+                        <View style={styles.bioDataPart}>
+                            <Text style={styles.bioDataContent}>
+                                1203210038
+                            </Text>
+                        </View>
+                        <Divider bold={'true'} style={{marginRight:15}}/>
+                        <View style={styles.bioDataPart}>
+                            <Text style={styles.bioDataContent}>
+                                IF-01-01
+                            </Text>
+                            <Divider bold={'true'} style={{marginRight:15}}/>
+                        </View>
+                    </View>
+                </View>
+
                 <Separator height={15}/>
-                <Text style={styles.titleText}>
-                    {bio.name}'s Profile
-                </Text>
-                <Avatar
-                    source={require('../assets/avatar.jpeg')}
-                />
+
+                <View style={{flex:2}}>
+                    <Text style={styles.socialText}>
+                        Connect With Me:
+                    </Text>
+                    <Separator height={10}/>
+                    <View style={styles.socialLogo}>
+                        <Image
+                            source={require('../assets/github.png')}
+                            style={styles.imageLogo}
+                        />
+                        <Image
+                            source={require('../assets/gmail.png')}
+                            style={styles.imageLogo}
+                        />
+                        <Image
+                            source={require('../assets/linkedin.png')}
+                            style={styles.imageLogo}
+                        />
+                        <Image
+                            source={require('../assets/instagram.png')}
+                            style={styles.imageLogo}
+                        />
+                    </View>
+                </View>
+
+                <View style={{flex:1, justifyContent:'flex-end', paddingBottom:20}}>
+                    <Button>
+                        
+                    </Button>
+                </View>
             </View>
         );
     }
@@ -47,8 +131,8 @@ export default Home
 
 const styles = StyleSheet.create({
     imageLogo:{
-        maxWidth: 60,
-        maxHeight: 60,
+        maxWidth: 50,
+        maxHeight: 50,
         resizeMode: 'contain'
     },
     logoContainer: {
@@ -59,9 +143,50 @@ const styles = StyleSheet.create({
     },
     titleText:{
         textAlign: 'center',
-        fontFamily: 'sans-serif',
-        fontSize: 25,
-        color: '#AA0002'
+        fontFamily: 'monospace',
+        fontSize: 22,
+        color: '#000000',
+        fontWeight : 'bold',
+    },
+    bioContainer:{
+        maxHeight: 200,
+        flexDirection: 'row',
+    },
+    bioTitle: {
+        flex: 2,
+    },
+    bioData: {
+        flex: 5,
+    },
+    bioTitlePart:{
+        flex:1,
+    },
+    bioDataPart:{
+        flex:1,
+    },
+    bioTitleContent:{
+        flex:1,
+        fontSize:18,
+        fontFamily: 'monospace',
+        textAlignVertical: 'center',
+        marginLeft:20,
+    },
+    bioDataContent:{
+        flex:1,
+        fontSize:18,
+        fontFamily: 'monospace',
+        textAlignVertical: 'center',
+        marginLeft:20,
+        marginRight:20,
+    },
+    socialText:{
+        fontSize:15,
+        fontWeight:'bold',
+        textAlign: 'center'
+    },
+    socialLogo:{
+        flex:1,
+        flexDirection:'row',
+        justifyContent:'space-around',
     }
-    
 })
