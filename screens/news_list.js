@@ -47,7 +47,6 @@ class News extends Component {
             <View style={{justifyContent:'center'}}>
               <Image source={{ uri: item.image }} style={styles.itemImage} />
             </View>
-            
           </View>
         </TouchableOpacity>
         <View style={styles.itemBorder}></View>
