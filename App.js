@@ -1,5 +1,4 @@
-import React from "react";
-import { StatusBar} from "react-native";
+import React, { Component } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./screens/home";
@@ -8,8 +7,8 @@ import NewsDetail from "./screens/news_detail";
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-  const headerStyle = {
+class App extends Component {
+  headerStyle = {
     headerTitleStyle: { color: "white" },
     headerStyle: {
       backgroundColor: "#d4af37",
@@ -17,35 +16,39 @@ const App = () => {
     headerTintColor: "white",
   };
 
-  return (
-    <NavigationContainer>
-      <StatusBar style="auto" backgroundColor='black' />
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} 
-        options=
-        {{
-            title: "Profile Page",
-            headerTitleAlign: "center", 
-          ...headerStyle
-        }}
-        />
-        <Stack.Screen name="News" component={News} 
-        options=
-        {{
-            title: "News Page",
-          ...headerStyle
-        }}
-        />
-        <Stack.Screen name="NewsDetail" component={NewsDetail} 
-        options=
-        {{
-            title: "", 
-          ...headerStyle
-        }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: "Profile Page",
+              headerTitleAlign: "center",
+              ...this.headerStyle,
+            }}
+          />
+          <Stack.Screen
+            name="News"
+            component={News}
+            options={{
+              title: "News Page",
+              ...this.headerStyle,
+            }}
+          />
+          <Stack.Screen
+            name="NewsDetail"
+            component={NewsDetail}
+            options={{
+              title: "",
+              ...this.headerStyle,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
 
 export default App;
