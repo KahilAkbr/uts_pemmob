@@ -21,13 +21,27 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="auto" backgroundColor='black' />
       <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title: "Home Page",
-            ...headerStyle,
-          }}
+        <Stack.Screen name="Home" component={Home} 
+        options=
+        {{
+            title: "Profile Page",
+            headerTitleAlign: "center", 
+          ...headerStyle
+        }}
+        />
+        <Stack.Screen name="News" component={News} 
+        options=
+        {{
+            title: "News Page",
+          ...headerStyle
+        }}
+        />
+        <Stack.Screen name="NewsDetail" component={NewsDetail} 
+        options=
+        {{
+            title: "", 
+          ...headerStyle
+        }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,11 +1,14 @@
 import React, {Component} from "react";
-import {Image, ScrollView, Text, View, StyleSheet, TouchableOpacity} from "react-native";
+import {Image, Text, View, StyleSheet, TouchableOpacity, Linking} from "react-native";
 import Separator from "../components/separator";
 import Button from "../components/button";
 import Avatar from "../components/avatar";
 import {Divider} from 'react-native-paper';
 
 class Home extends Component{
+    navigateToNews = () => {
+        this.props.navigation.navigate('News')
+    }
     render(){
         const bio = {
             "name" : "Kahil",
@@ -14,7 +17,7 @@ class Home extends Component{
             "classes" : "IF-01-01",
         }
         const social = {
-            "email" : "kahil.akbar@gmail.com",
+            "wa" : "https://wa.me/6289665855184",
             "github" : "https://github.com/KahilAkbr",
             "linkedin" : "https://www.linkedin.com/in/kahil-akbar-534684298/",
             "insta" : "https://www.instagram.com/kahilakbar/"
@@ -71,19 +74,19 @@ class Home extends Component{
                     <View style={styles.bioData}>
                         <View style={styles.bioDataPart}>
                             <Text style={styles.bioDataContent}>
-                                Kahil Akbar Bayu Adityo
+                                {bio.fullName}
                             </Text>
                         </View>
                         <Divider bold={'true'} style={{marginRight:15}}/>
                         <View style={styles.bioDataPart}>
                             <Text style={styles.bioDataContent}>
-                                1203210038
+                                {bio.nim}
                             </Text>
                         </View>
                         <Divider bold={'true'} style={{marginRight:15}}/>
                         <View style={styles.bioDataPart}>
                             <Text style={styles.bioDataContent}>
-                                IF-01-01
+                                {bio.classes}
                             </Text>
                             <Divider bold={'true'} style={{marginRight:15}}/>
                         </View>
@@ -96,31 +99,40 @@ class Home extends Component{
                     <Text style={styles.socialText}>
                         Connect With Me:
                     </Text>
-                    <Separator height={10}/>
-                    <View style={styles.socialLogo}>
-                        <Image
-                            source={require('../assets/github.png')}
-                            style={styles.imageLogo}
-                        />
-                        <Image
-                            source={require('../assets/gmail.png')}
-                            style={styles.imageLogo}
-                        />
-                        <Image
-                            source={require('../assets/linkedin.png')}
-                            style={styles.imageLogo}
-                        />
-                        <Image
-                            source={require('../assets/instagram.png')}
-                            style={styles.imageLogo}
-                        />
+                    <Separator height={15}/>
+                    <View style={styles.socialLayout}>
+                        <TouchableOpacity onPress={() => Linking.openURL(social.github)}>
+                            <Image
+                                source={require('../assets/github.png')}
+                                style={styles.socialLogo}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL(social.linkedin)}>
+                            <Image
+                                source={require('../assets/linkedin.png')}
+                                style={styles.socialLogo}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL(social.insta)}>
+                            <Image
+                                source={require('../assets/instagram.png')}
+                                style={styles.socialLogo}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL(social.wa)}>
+                            <Image
+                                source={require('../assets/wa.png')}
+                                style={styles.socialLogo}
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
                 <View style={{flex:1, justifyContent:'flex-end', paddingBottom:20}}>
-                    <Button>
-                        
-                    </Button>
+                    <Button 
+                        text="News List"
+                        onPress={this.navigateToNews}
+                    />
                 </View>
             </View>
         );
@@ -184,9 +196,14 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textAlign: 'center'
     },
-    socialLogo:{
+    socialLayout:{
         flex:1,
         flexDirection:'row',
         justifyContent:'space-around',
-    }
+    },
+    socialLogo:{
+        maxWidth: 45,
+        maxHeight: 45,
+        resizeMode: 'contain'
+    },
 })
