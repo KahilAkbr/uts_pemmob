@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Image, Dimensions, Linking, ScrollView } from "react-native";
-import Separator from "../components/separator";
-import Button from "../components/button";
+import {Separator, Button} from "../components/custom-component";
 
 const windowWidth = Dimensions.get("window").width;
 

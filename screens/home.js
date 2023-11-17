@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import {Image, Text, View, StyleSheet, TouchableOpacity, Linking} from "react-native";
-import Separator from "../components/separator";
-import Button from "../components/button";
-import Avatar from "../components/avatar";
+import {Separator, Button, Avatar} from "../components/custom-component";
 import {Divider} from 'react-native-paper';
 
 class Home extends Component{
